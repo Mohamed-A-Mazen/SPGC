@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:textAlignment="center"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".MainActivity">
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="290dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="h,10:3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineChart"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="1"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:text="2"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listView"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="3"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="+"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:text="5"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="4"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="6"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/minus"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/multiply"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="*"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toTopOf="@+id/button9"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="9"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toTopOf="@+id/button8"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:text="8"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toStartOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="7"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintEnd_toStartOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/buttonX"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:fontFamily="sans-serif"
+        android:text="x"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/decimalPoint"
+        app:layout_constraintTop_toTopOf="@+id/decimalPoint"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/divide"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="÷"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonX"
+        app:layout_constraintTop_toTopOf="@+id/buttonX"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/squaredExp"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="^2"
+        android:textAlignment="center"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toStartOf="@+id/exponent"
+        app:layout_constraintTop_toTopOf="@+id/exponent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/openBracket"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="("
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/closeBracket"
+        app:layout_constraintTop_toTopOf="@+id/closeBracket"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/decimalPoint"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:text="."
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/button8"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/decimalPoint"
+        app:layout_constraintTop_toBottomOf="@+id/button8"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/squareRoot"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="2dp"
+        android:text="\u221A()"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/pi"
+        app:layout_constraintTop_toBottomOf="@+id/closeBracket"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/closeBracket"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text=")"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/exponent"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="^"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="@+id/button1"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/functionsButton"
+        android:layout_width="52dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="funs"
+        android:textAlignment="center"
+        android:textSize="6sp"
+        app:layout_constraintStart_toEndOf="@+id/plus"
+        app:layout_constraintTop_toTopOf="@+id/plus"
+        app:layout_constraintWidth_default="percent"
+         />
+
+    <Button
+        android:id="@+id/eulerConstant"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:capitalize="none"
+        android:fontFamily="sans-serif"
+        android:text="e"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/button0"
+        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/pi"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:fontFamily="sans-serif"
+        android:text="\u03C0"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/rightwardArrrow"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="\u2192"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/multiply"
+        app:layout_constraintTop_toBottomOf="@+id/minus"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+        android:id="@+id/leftwardArrow"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="\u2190"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/divide"
+        app:layout_constraintTop_toBottomOf="@+id/multiply"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.150" />
+
+    <Button
+
+        android:id="@+id/deleteButton"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="\u232b"
+        android:textAlignment="center"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/minus"
+        app:layout_constraintTop_toBottomOf="@+id/plus"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.15" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

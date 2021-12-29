@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/rounded_border_popup_window_background"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/aCos"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="acos()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/aTan"
+        app:layout_constraintEnd_toStartOf="@+id/cosHyper" />
+
+    <Button
+        android:id="@+id/cosHyper"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:text="cosh()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/tanHyper"
+        app:layout_constraintEnd_toEndOf="@+id/tanHyper" />
+
+    <Button
+        android:id="@+id/sin"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="sin()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/aSin"
+        app:layout_constraintTop_toTopOf="@+id/aSin" />
+
+    <Button
+        android:id="@+id/aCtan"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="actan()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/cotHyper"
+        app:layout_constraintTop_toTopOf="@+id/cotHyper" />
+
+    <Button
+        android:id="@+id/secHyper"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:text="sech()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@+id/cotHyper"
+        app:layout_constraintTop_toBottomOf="@+id/cotHyper" />
+
+    <Button
+        android:id="@+id/cscHyper"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:text="csch()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@+id/secHyper"
+        app:layout_constraintTop_toBottomOf="@+id/secHyper" />
+
+    <Button
+        android:id="@+id/cos"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="cos()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/tan"
+        app:layout_constraintEnd_toStartOf="@+id/aCos" />
+
+    <Button
+        android:id="@+id/tan"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="tan()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/aTan"
+        app:layout_constraintTop_toTopOf="@+id/aTan" />
+
+    <Button
+        android:id="@+id/aTan"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="atan()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/tanHyper"
+        app:layout_constraintTop_toTopOf="@+id/tanHyper" />
+
+    <Button
+        android:id="@+id/ctan"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="ctan()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/aCtan"
+        app:layout_constraintTop_toTopOf="@+id/aCtan" />
+
+    <Button
+        android:id="@+id/aSec"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="asec()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/secHyper"
+        app:layout_constraintTop_toTopOf="@+id/secHyper" />
+
+    <Button
+        android:id="@+id/sec"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="sec()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/aSec"
+        app:layout_constraintTop_toBottomOf="@+id/aCtan" />
+
+    <Button
+        android:id="@+id/sinHyper"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:text="sinh()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/cosHyper"
+        app:layout_constraintEnd_toEndOf="@+id/cosHyper" />
+
+    <Button
+        android:id="@+id/aSin"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="asin()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/sinHyper"
+        app:layout_constraintTop_toTopOf="@+id/sinHyper" />
+
+    <Button
+        android:id="@+id/tanHyper"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:text="tanh()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41000003" />
+
+    <Button
+        android:id="@+id/cotHyper"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:text="coth()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@+id/tanHyper"
+        app:layout_constraintTop_toBottomOf="@+id/tanHyper" />
+
+    <Button
+        android:id="@+id/cosec"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="8dp"
+        android:text="cosec()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/aCosec"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aSec" />
+
+    <Button
+        android:id="@+id/aCosec"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="2dp"
+        android:text="acosec()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/cscHyper"
+        app:layout_constraintTop_toBottomOf="@+id/secHyper" />
+
+    <Button
+        android:id="@+id/logarithm"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="log()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/sinHyper"
+        app:layout_constraintTop_toTopOf="@+id/sinHyper" />
+
+    <Button
+        android:id="@+id/logBase2"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="Button"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/cosHyper"
+        app:layout_constraintTop_toTopOf="@+id/cosHyper" />
+
+    <Button
+        android:id="@+id/naturalLog"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="ln()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/tanHyper"
+        app:layout_constraintTop_toBottomOf="@+id/cosHyper" />
+
+    <Button
+        android:id="@+id/derivative"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:text="d/dx()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/cotHyper"
+        app:layout_constraintTop_toBottomOf="@+id/tanHyper" />
+
+    <Button
+        android:id="@+id/integral"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="8dp"
+        android:text="\u222B()"
+        android:textAllCaps="false"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/secHyper"
+        app:layout_constraintTop_toTopOf="@+id/secHyper" />
+</androidx.constraintlayout.widget.ConstraintLayout>
