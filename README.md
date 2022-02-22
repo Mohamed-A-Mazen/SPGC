@@ -5,4 +5,5 @@ It's full name is simple purpose graphing calculator
 The main focuses of the app are simplicity and good performance
 
 the main layout for the app 
-![](IMG_20220222_110820.jpg)
+<img src = "IMG_20220222_110820.jpg" height = "200">
+
