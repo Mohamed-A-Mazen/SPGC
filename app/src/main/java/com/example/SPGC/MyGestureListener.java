@@ -23,7 +23,7 @@ public class MyGestureListener implements View.OnTouchListener, GestureDetector.
         LineData lineData = MainActivity.getLineData();
 
         // for reasons i don't know the viewPort of the lineChart sometimes moves
-        // spontaneously because of that we want to add entries when that happens
+        // spontaneously because of that we want to refresh the chart when that happens
 
         if (MainActivity.getLowestXPoint() > lineData.getXMax() ||
                 MainActivity.getHighestXPoint() < lineData.getXMin() ||
