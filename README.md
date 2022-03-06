@@ -10,9 +10,9 @@ the main layout for the app
 <img src = "IMG_20220222_110820.jpg" height = "800" >
 
 
-you can graph simple mathmatical functions like x^2 and sin(x) and you can 
-graph the derivative of a function and you can also get the numerical value 
-of a definite integral of a function
+you can graph simple mathmatical functions like x^2 and sin(x) and combine these to get more complicated expression ,
+you can graph the derivative of a function and you can also get the numerical value ,
+of a definite integral of a function.
 
 
 
