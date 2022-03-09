@@ -93,7 +93,7 @@ public class MFunction {
             /**
             the reason we're having two lists "uiList and modifying list" in each time we are modifying data,
             is because two event handlers might get called at the same time and this might cause an inconsistency in the data
-            if they are modifying the same list , so to prevent that we are having two
+            if they are modifying the same list because the linkedlist is not thread safe , so to prevent that we are having two
             **/
 
         if (direction == 0){
