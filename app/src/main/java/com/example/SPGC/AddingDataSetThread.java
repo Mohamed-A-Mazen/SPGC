@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class AddingDataSetThread extends AsyncTask<Integer, Void, LineData> {
     public static boolean isRunning ;
+    private final static Object lock = new Object();
     @Override
     protected LineData doInBackground(Integer... integers) {
         int direction = integers[0];
@@ -18,9 +19,13 @@ public class AddingDataSetThread extends AsyncTask<Integer, Void, LineData> {
         //if the scale attribute is > 51 which can be the case because
         // the getLowestX and highestX do not work properly sometimes
         // we cancel the task by returning null;
-        if ( scale <= 0 || scale > 51 || MyGestureListener.distance(lowestX,highestX) > 200)
+        if ( scale <= 0 || scale > 51 || MyGestureListener.distance(lowestX,highestX) > 200){
             return null;
-        isRunning = true;
+        }
+
+        synchronized (lock){
+            isRunning = true;
+        }
 
         // start compute values for function depending on direction of scrolling
         try {
@@ -53,7 +58,9 @@ public class AddingDataSetThread extends AsyncTask<Integer, Void, LineData> {
             MainActivity.getLineChart().setData(lineData);
             MainActivity.getLineChart().notifyDataSetChanged();
             MainActivity.getLineChart().invalidate();
-            isRunning = false;
+            synchronized (lock) {
+                isRunning = false;
+            }
         }
     }
 
