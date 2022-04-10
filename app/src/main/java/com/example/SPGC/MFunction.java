@@ -14,9 +14,9 @@ import java.util.List;
 
 
 public class MFunction {
-    private List<Entry> uiList;
-    private float upperBound = 1;
-    private float lowerBound = -1;
+     private List<Entry> entries;
+    private float integralUpperBound = 1;
+    private float integralLowerBound = -1;
     private float numericValue = 10000;
     private boolean hasNumericValue = false;
     // two expressions one for displaying and the other is for parsing;
@@ -68,8 +68,7 @@ public class MFunction {
     public void setLowerBound(float lowerBound) {
         this.lowerBound = lowerBound;
     }
-
-        public LineDataSet computeValues(float from, float to, float scale , int direction) {
+  public LineDataSet computeValues(float from, float to, float scale , int direction) {
         // computing the values of the functions
         if (this.getSymbolicExpression().equals("")) {
             this.hasNumericValue = false;
@@ -89,66 +88,60 @@ public class MFunction {
         float xGrowthFactor = scale / 200;
         Function function = new Function("f(x) = " + this.expression);
         Expression expression;
-        try {
-            /**
-            the reason we're having two lists "uiList and modifying list" in each time we are modifying data,
-            is because two event handlers might get called at the same time and this might cause an inconsistency in the data
-            if they are modifying the same list because the linkedlist is not thread safe , so to prevent that we are having two
-            **/
-
-        if (direction == 0){
-            // adding data to the middle of the lineChart
-            List<Entry> middleList = new LinkedList<>();
-                for (float x = from - 2; x <= to + 2 ; x+=xGrowthFactor) {
-                    expression = new Expression("f(" + x + ")", function);
-                    currentOutput =(float)(expression.calculate());
-                    if (!String.valueOf(currentOutput).equals("NaN"))
-                        middleList.add(new Entry(x, currentOutput));
-                }
-                uiList = new LinkedList<>(middleList);
-        }else if (direction == 1){
-            // adding data to the right
-            List<Entry> rightwardList = new LinkedList<>(uiList);
-            from = rightwardList.get(uiList.size()-1).getX();
-            to = from + scale;
-            for (float x = from ; x <= to ; x+=xGrowthFactor) {
-                    expression = new Expression("f(" + x + ")", function);
-                    currentOutput =(float)(expression.calculate());
-                    if (!String.valueOf(currentOutput).equals("NaN")) {
-                        rightwardList.add(new Entry(x, currentOutput));
-                        if (!(rightwardList.get(0).getX() > lowestPoint - scale/2))
-                            rightwardList.remove(0);
+        
+        //synchronizing on the likedList object to prevent multiple threads from accessing the entries List at the same time;
+            
+        synchronized(this.entries) {
+            try {
+                if (direction == 0){
+                    // adding data to the middle of the lineChart
+                    entries = new LinkedList<>();
+                    for (float x = from - 2; x <= to + 2 ; x+=xGrowthFactor) {
+                        expression = new Expression("f(" + x + ")", function);
+                        currentOutput =(float)(expression.calculate());
+                        if (!String.valueOf(currentOutput).equals("NaN"))
+                            entries.add(new Entry(x, currentOutput));
+                    }
+                }else if (direction == 1){
+                    // adding data to the right
+                    from = entries.get(entries.size()-1).getX();
+                    to = from + scale;
+                    for (float x = from ; x <= to ; x+=xGrowthFactor) {
+                        expression = new Expression("f(" + x + ")", function);
+                        currentOutput =(float)(expression.calculate());
+                        if (!String.valueOf(currentOutput).equals("NaN")) {
+                            entries.add(new Entry(x, currentOutput));
+                            if (!(entries.get(0).getX() > lowestPoint - scale/2))
+                                entries.remove(0);
+                        }
+                    }
+                }else if (direction == -1){
+                    // adding data to the left
+                    to = entries.get(0).getX() - scale;
+                    from = entries.get(0).getX() ;
+                    for (float x = from ; x >= to ; x-=xGrowthFactor) {
+                        expression = new Expression("f(" + x + ")", function);
+                        currentOutput =(float)(expression.calculate());
+                        if (!String.valueOf(currentOutput).equals("NaN")) {
+                            entries.add(0,new Entry(x, currentOutput));
+                            if (entries.get(entries.size() - 1).getX() > highestPoint + scale/2)
+                                entries.remove(entries.size() - 1);
+                        }
                     }
                 }
-            uiList = new LinkedList<>(rightwardList);
-        }else if (direction == -1){
-            // adding data to the left
-            List<Entry> leftwardList = new LinkedList<>(uiList);
-            to = leftwardList.get(0).getX() - scale;
-            from = leftwardList.get(0).getX() ;
-                for (float x = from ; x >= to ; x-=xGrowthFactor) {
-                    expression = new Expression("f(" + x + ")", function);
-                    currentOutput =(float)(expression.calculate());
-                    if (!String.valueOf(currentOutput).equals("NaN")) {
-                        leftwardList.add(0,new Entry(x, currentOutput));
-                        if (!(leftwardList.get(leftwardList.size() - 1).getX() < highestPoint + scale/2))
-                            leftwardList.remove(leftwardList.size() - 1);
-                    }
-                }
-                uiList = new LinkedList<>(leftwardList);
+            }catch (NullPointerException exception){
+                //
+            }    
         }
-        }catch (Exception exception){
-            exception.getMessage();
-        }
+        
         // customising the data set
-        LineDataSet dataSet = new LineDataSet(uiList, this.symbolicExpression);
+        LineDataSet dataSet = new LineDataSet(entries, this.symbolicExpression);
         dataSet.setDrawCircles(false);
         dataSet.setDrawValues(false);
         dataSet.setLineWidth(3);
         dataSet.setColor(chooseColor());
         return dataSet;
     }
-
 
 
     private int chooseColor() {
