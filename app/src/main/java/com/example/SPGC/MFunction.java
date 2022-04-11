@@ -1,20 +1,20 @@
 package com.example.SPGC;
 
-import android.graphics.Color;
+        import android.graphics.Color;
 
 
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineDataSet;
+        import com.github.mikephil.charting.data.Entry;
+        import com.github.mikephil.charting.data.LineDataSet;
 
-import org.mariuszgromada.math.mxparser.Expression;
-import org.mariuszgromada.math.mxparser.Function;
+        import org.mariuszgromada.math.mxparser.Expression;
+        import org.mariuszgromada.math.mxparser.Function;
 
-import java.util.LinkedList;
-import java.util.List;
+        import java.util.LinkedList;
+        import java.util.List;
 
 
 public class MFunction {
-     private List<Entry> entries;
+    private List<Entry> entries;
     private float integralUpperBound = 1;
     private float integralLowerBound = -1;
     private float numericValue = 10000;
@@ -25,7 +25,6 @@ public class MFunction {
 
 
     public MFunction() {
-        uiList = new LinkedList<>();
         this.expression = "";
         this.symbolicExpression = "";
     }
@@ -62,13 +61,13 @@ public class MFunction {
     }
 
     public void setUpperBound(float upperBound) {
-        this.upperBound = upperBound;
+        this.integralLowerBound = upperBound;
     }
 
     public void setLowerBound(float lowerBound) {
-        this.lowerBound = lowerBound;
+        this.integralLowerBound = lowerBound;
     }
-  public LineDataSet computeValues(float from, float to, float scale , int direction) {
+    public LineDataSet computeValues(float from, float to, float scale , int direction) {
         // computing the values of the functions
         if (this.getSymbolicExpression().equals("")) {
             this.hasNumericValue = false;
@@ -88,10 +87,9 @@ public class MFunction {
         float xGrowthFactor = scale / 200;
         Function function = new Function("f(x) = " + this.expression);
         Expression expression;
-        
-        //synchronizing on the likedList object to prevent multiple threads from accessing the entries List at the same time;
-            
-        synchronized(this.entries) {
+
+    
+
             try {
                 if (direction == 0){
                     // adding data to the middle of the lineChart
@@ -129,11 +127,10 @@ public class MFunction {
                         }
                     }
                 }
-            }catch (NullPointerException exception){
+            }catch (Exception exception){
                 //
-            }    
-        }
-        
+            }
+
         // customising the data set
         LineDataSet dataSet = new LineDataSet(entries, this.symbolicExpression);
         dataSet.setDrawCircles(false);
@@ -190,9 +187,9 @@ public class MFunction {
                 if (leftBrackets == rightBrackets && leftBrackets != 0) {
                     StringBuilder stringBuilder = new StringBuilder(completeEquation);
                     if (currentString.equals("int")) {
-                        stringBuilder.insert(j, ",x," + lowerBound + "," + upperBound);
+                        stringBuilder.insert(j, ",x," + integralLowerBound + "," + integralLowerBound);
                         completeEquation = stringBuilder.toString();
-                        integralBuilder.insert(integralBuilder.length() - 1, ",x," + lowerBound + "," + upperBound);
+                        integralBuilder.insert(integralBuilder.length() - 1, ",x," + integralLowerBound + "," + integralUpperBound);
                         Expression expression = new Expression(integralBuilder.toString());
                         // we replace the string of the integral with it's numerical value because we don't want to calculate
                         // it every time we are adding new data because it is constant
