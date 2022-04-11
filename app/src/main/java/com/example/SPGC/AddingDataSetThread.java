@@ -8,9 +8,8 @@ import java.util.ArrayList;
 
 public class AddingDataSetThread extends AsyncTask<Integer, Void, LineData> {
     public static boolean isRunning ;
-    private final static Object lock = new Object();
     @Override
-    protected LineData doInBackground(Integer... integers) {
+    protected synchronized LineData doInBackground(Integer... integers) {
         int direction = integers[0];
         LineData lindData = new LineData();
         float scale = MainActivity.getVisibleXRange();
@@ -19,16 +18,11 @@ public class AddingDataSetThread extends AsyncTask<Integer, Void, LineData> {
         //if the scale attribute is > 51 which can be the case because
         // the getLowestX and highestX do not work properly sometimes
         // we cancel the task by returning null;
-        if ( scale <= 0 || scale > 51 || MyGestureListener.distance(lowestX,highestX) > 200){
+        if ( scale <= 0 || scale > 51 || MyGestureListener.distance(lowestX,highestX) > 200)
             return null;
-        }
-
-        synchronized (lock){
-            isRunning = true;
-        }
+        isRunning = true;
 
         // start compute values for function depending on direction of scrolling
-        try {
             ArrayList<MFunction> functionsArrayList = MainActivity.getFunctionsList();
             if (functionsArrayList.size() <= 0)
                 return null;
@@ -45,9 +39,6 @@ public class AddingDataSetThread extends AsyncTask<Integer, Void, LineData> {
                     lindData.addDataSet(MFunction.computeValues
                             (lowestX, highestX, scale, 0));
             }
-        } catch (Exception e) {
-            e.getMessage();
-        }
         return lindData;
     }
 
@@ -58,10 +49,9 @@ public class AddingDataSetThread extends AsyncTask<Integer, Void, LineData> {
             MainActivity.getLineChart().setData(lineData);
             MainActivity.getLineChart().notifyDataSetChanged();
             MainActivity.getLineChart().invalidate();
-            synchronized (lock) {
-                isRunning = false;
-            }
+            isRunning = false;
         }
     }
 
 }
+
